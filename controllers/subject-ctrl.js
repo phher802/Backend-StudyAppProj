@@ -1,4 +1,4 @@
-const Subject = reqruie('../models/subject-model')
+const Subject = require('../models/subject-model')
 
 createSubject = (req, res) => {
     const body = req.body
@@ -74,5 +74,53 @@ updateSubject = async (req, res) => {
 
     })
 
+}
 
+deleteSubject = async (req, res) => {
+    await Subject.findOneAndDelete({_id: req.params.id}, (err, subject) => {
+            if (err){
+                return res.status(400).json({sucess: false, error: err})
+            }
+            if (!subject){
+                return res  
+                    .status(404)
+                    .json({success: false, error: 'Subject not found'})
+            }
+            return res.status(200).json({sucess: true, data: subject})
+        }).catch(err => console.log(err))
+    
+}
+
+getSubjectById = async (req, res) => {
+    await MSPointerEvent.findOne({ _id: req.params.id}, (err, subject) =>{
+        if (err){
+            return res.status(400).json({success: false, error: err})
+        }
+
+        if (!subject){
+            return res.status(404).json({sucess: false, error: 'Subject not found'})
+        }
+        return res.status(200).json({success: true, data: subject})
+
+    }).catch( err => console.log(err))
+}
+
+getSubjects = async (req, res) => {
+    await Subject.find({}, (err, subjects) =>{
+        if (err) {
+            return res.status(400).json({success: false, error: err})
+        }
+        if(!subjects.length){
+            return res.status(404).json({success: false, error: 'Movie not found'})
+        }
+        return res.status(200).json({success: true, data: subject})
+    }).catch(err => console.log(err))
+}
+
+export default {
+    createSubject, 
+    updateSubject, 
+    deleteSubject, 
+    getSubjects, 
+    getSubjectById
 }
