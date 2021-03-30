@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const db = require('./db');
-const subjectRouter = require('/routes/subject-router')
+const subjectRouter = require('./routes/subject-router')
 
 const app = express();
 const apiPort = 3000;

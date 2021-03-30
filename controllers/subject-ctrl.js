@@ -117,7 +117,7 @@ getSubjects = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
-export default {
+module.exports = {
     createSubject, 
     updateSubject, 
     deleteSubject, 

@@ -12,7 +12,7 @@ const Subject = new Schema(
         },
         category: {
             type: String,
-            enum: ['terms', 'problem examples'],
+            enum: ['Terms', 'Problem Examples'],
             required: true
         },
         title: {
