@@ -1,7 +1,7 @@
 //jshint esversion:6
 
 const express = require('express')
-const { default: subjectCtrl } = require('../controllers/subject-ctrl')
+const { default: SubjectCtrl } = require('../controllers/subject-ctrl')
 
 const SubjectCtrl = require('../controllers/subject-ctrl')
 
